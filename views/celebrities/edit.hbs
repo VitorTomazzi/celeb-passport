@@ -16,10 +16,17 @@
             <option value="" selected disabled> Please Select One</option>
 
             {{#each movies}}
+            {{#if this.chosen}}
+            <option selected value="{{this._id}}">{{this.title}}</option>
+            {{else}}
             <option value="{{this._id}}">{{this.title}}</option>
+            {{/if}}
             {{/each}}
 
         </select>
+
+        <p>Edit Image</p>
+        <input type="text" name='theImage' value='{{celeb.image}}'>
     </div>
 
     <button type='submit'> Save </button>

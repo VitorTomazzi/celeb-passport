@@ -119,9 +119,6 @@ passport.use(new LocalStrategy((username, password, next) => {
 
 
 
-
-
-
 //creates universal variable in all hbs files
 //creates user in session 
 app.use((req, res, next) => {

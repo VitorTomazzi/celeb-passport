@@ -2,14 +2,16 @@
 
 <form action="/celebrity" method="POST">
 
-    <p>Name:</p>
-    <input type="text" name='theName'>
+    <div>
+        <p>Name:</p>
+        <input type="text" name='theName'>
 
-    <p>Occupation:</p>
-    <input type="text" name='theOccupation'>
+        <p>Occupation:</p>
+        <input type="text" name='theOccupation'>
 
-    <p>Catch Phrase:</p>
-    <input type="text" name='theCatchPhrase'>
+        <p>Catch Phrase:</p>
+        <input type="text" name='theCatchPhrase'>
+    </div>
 
     <div>
         <p>Stars in:</p>
@@ -19,11 +21,14 @@
             {{#each movies}}
             <option value="{{this._id}}">{{this.title}}</option>
             {{/each}}
-            
+
         </select>
     </div>
 
-    <br>
+    <div>
+        <p>Image:</p>
+        <input type="text" name='theImage'>
+    </div>
 
     <div>
         <button type="submit">SAVE</button>

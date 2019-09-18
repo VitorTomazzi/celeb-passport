@@ -100,6 +100,13 @@ router.get('/edit/:id', (req, res, next) => {
     .then((theCeleb) => {
       Movie.find()
         .then((theMovies) => {
+
+          theMovies.forEach((eachMovie)=>{
+            if(eachMovie._id.equals(theCeleb.movie)){
+              eachMovie.chosen = true;
+            }
+          })
+
           res.render('celebrities/edit', {
             celeb: theCeleb,
             movies: theMovies
@@ -121,6 +128,7 @@ router.post('/update/:id', (req, res, next) => {
   let occupation = req.body.theOccupation;
   let catchPhrase = req.body.theCatchPhrase;
   let movie = req.body.theMovie;
+  let image = req.body.theImage;
 
   Celeb.findByIdAndUpdate(id, {
       name: name,
