@@ -1,0 +1,25 @@
+<div class='welcome'>
+  <h1>Celebrity Wiki</h1>
+  <p>Welcome! Let's learn some celeb stuff</p>
+</div>
+
+
+<form action="/user/login" method="POST" id="login-form">
+  <h2>Login</h2>
+
+  <label for="username">Username</label>
+  <input type="text" name="theUsername">
+
+  <label for="password">Password</label>
+  <input type="password" name="thePassword">
+
+  {{!-- {{#if errorMessage }}
+    <div class="error-message">{{ errorMessage }}</div>
+  {{/if}} --}}
+
+  <button type='submit'>Login</button>
+
+  <p class="account-message">
+    Don't have an account? <a href="/user/signup">Sign up</a>
+  </p>
+</form>
