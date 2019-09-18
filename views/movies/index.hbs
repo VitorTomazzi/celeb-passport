@@ -3,6 +3,10 @@
 <div class='movie-wrapper'>
     {{#each movies}}
     <div class='movie-options'>
+        <div>
+            <img src="{{this.image}}" alt="movie image">
+        </div>
+
         <div class='movie-name'>
             {{this.title}}
         </div>
@@ -12,7 +16,7 @@
 
             <a href="/movies/edit/{{this._id}}"> Edit </a>
 
-             <form action="/movies/delete/{{this.id}}" method="POST">
+            <form action="/movies/delete/{{this.id}}" method="POST">
                 <button class='delete-button' type="submit"> Delete </button>
             </form>
         </div>

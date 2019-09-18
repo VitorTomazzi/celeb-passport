@@ -39,11 +39,13 @@ router.post('/', (req, res, next) => {
     let title = req.body.theTitle;
     let genre = req.body.theGenre;
     let plot = req.body.thePlot;
+    let image = req.body.theImage;
 
     Movie.create({
             title: title,
             genre: genre,
-            plot: plot
+            plot: plot,
+            image: image
         })
         .then((result) => {
             res.redirect('/movies')
@@ -85,11 +87,13 @@ router.post('/update/:id', (req, res, next) => {
     let title = req.body.theTitle;
     let genre = req.body.theGenre;
     let plot = req.body.thePlot;
+    let image = req.body.theImage;
 
     Movie.findByIdAndUpdate(id, {
             title: title,
             genre: genre,
-            plot: plot
+            plot: plot,
+            image: image
         })
         .then((result) => {
             res.redirect('/movies')

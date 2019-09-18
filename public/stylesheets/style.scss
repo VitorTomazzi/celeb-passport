@@ -1,7 +1,7 @@
 // #00FFB2
 
 body {
-  // padding: 50px;
+  padding: 30px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: rgba($color: #5c5b5b, $alpha: .1)
 
@@ -160,13 +160,16 @@ nav > a {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  // border: 1px solid blue;
-  width: 30vw;
-  height: 40vh;
+  width: 270px;
+  height: 50vh;
   padding: 2rem;
   margin: 1rem;
-  background-color: rgba($color: #00FFFB, $alpha: .6);
+  background-color: rgba($color: #5c5b5b, $alpha: .6);
   border-radius: 5px;
+}
+
+.celeb-options img {
+  width: 270px;
 }
 
 .celeb-actions {
@@ -194,7 +197,7 @@ nav > a {
 .celeb-actions > div > a {
   text-decoration: none;
   border: 1px solid #00B7FF;
-  background-color: #00B7FF;
+  background-color: #00B7FF;  
   color: white;
   border-radius: 5px;
   padding: .5rem;
