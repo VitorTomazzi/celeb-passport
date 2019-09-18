@@ -17,24 +17,23 @@
     <div>{{errorMessage}}</div>
     {{/if}} --}}
 
-{{!-- if not logged in --}}
-{{#unless theUser}}
-    <a href="/"> Home </a>
-    <a href="/user/login"> Login </a>
-    <a href="/user/signup"> Sign Up </a>
-{{/unless}}
-
-{{!-- if logged in  --}}
-{{#if theUser}}
-   <a href="/celebrity"> List of Celebrities </a>
+    {{!-- if logged in  --}}
+    {{#if theUser}}
+    <a href="/celebrity"> List of Celebrities </a>
     <a href="/celebrity/new"> Add New Celebrity </a>
     <a href="/movies"> List of All Movies </a>
     <a href="/movies/new"> Add New Movie </a>
     <a href="/user/logout"> Logout </a>
-{{/if}}
+
+    {{else}}
+    <a href="/"> Home </a>
+    <a href="/user/login"> Login </a>
+    <a href="/user/signup"> Sign Up </a>
+
+    {{/if}}
 
 
- 
+
   </nav>
 
   {{{body}}}

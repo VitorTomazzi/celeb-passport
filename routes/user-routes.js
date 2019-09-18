@@ -5,7 +5,7 @@ const User = require('../models/User')
 
 const bcrypt = require("bcryptjs");
 const bcryptSalt = 10;
-
+const passport = require('passport');
 
 
 router.get('/signup', (req, res, next) => {
@@ -36,49 +36,23 @@ router.post('/signup', (req, res, next) => {
 
 router.get('/login', (req, res, next) => {
 
-  res.render('user/login');
+  res.render('user/login', { "message": req.flash("error") });
 
 })
 
-router.post('/login', (req, res, next) => {
-  let username = req.body.theUsername;
-  let password = req.body.thePassword;
+router.post("/login", passport.authenticate("local", {
+  successRedirect: "/celebrity",
+  failureRedirect: "/login",
+  failureFlash: true,
+  passReqToCallback: true
+}));
 
-  User.findOne({
-      'username': username
-    })
-    .then((userFromDB) => {
-      if (!userFromDB) {
-
-        // req.flash('error', 'Sorry, that username does not exist');
-
-        res.redirect('/')
-      }
-      if (bcrypt.compareSync(password, userFromDB.password)) {
-        req.session.currentuser = userFromDB; //magic line of code that logs you in
-        res.redirect('/');
-      } else {
-        res.redirect('/');
-      }
-    })
-    .catch((err) => {
-      next(err);
-    })
-
-})
 
 router.get("/logout", (req, res, next) => {
-  req.session.destroy((err) => {
-    // can't access session here
-    res.redirect("/user/login");
-  });
+
+  req.logout();
+  res.redirect("/user/login");
 });
-
-
-
-
-
-
 
 
 
