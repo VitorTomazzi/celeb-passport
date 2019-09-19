@@ -6,7 +6,7 @@ const Movie = require('../models/Movie')
 router.get('/', (req, res, next) => {
     Movie.find()
         .then((allTheMovies) => {
-            console.log(allTheMovies)
+            // console.log(allTheMovies)
             res.render('movies/index', {
                 movies: allTheMovies
             })

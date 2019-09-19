@@ -7,7 +7,7 @@ const celebSchema = new Schema({
   catchPhrase: String,
   movie: {type: Schema.Types.ObjectId, ref: 'Movie'},
   image: String,
-  creator: {type: Schema.Types.ObjectId, ref='User'}
+  creator: {type: Schema.Types.ObjectId, ref: 'User'}
 })
 
 const Celeb = mongoose.model('Celeb', celebSchema);
