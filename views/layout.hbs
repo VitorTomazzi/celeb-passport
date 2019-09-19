@@ -13,9 +13,11 @@
 
   <nav class='navbar'>
 
-    {{!-- {{#if errorMessage}}
-    <div>{{errorMessage}}</div>
-    {{/if}} --}}
+    {{!-- if admin logged in,then can delete and create new account  --}}
+    {{#if theUser.isAdmin}}
+    <a href="/admin/create-new-account">Create New User</a>
+    <a href="/admin/active-users">See All Users</a>
+    {{/if}}
 
     {{!-- if logged in  --}}
     {{#if theUser}}
@@ -37,6 +39,15 @@
   </nav>
 
   {{{body}}}
+
+
+  {{!-- {{#if errorMessage}}
+  <div>{{errorMessage}}</div>
+  {{/if}}
+
+  {{#if SuccessMessage}}
+  <div>{{SuccessMessage}}</div>
+  {{/if}} --}}
 
   <script src="/javascripts/script.js"></script>
 </body>

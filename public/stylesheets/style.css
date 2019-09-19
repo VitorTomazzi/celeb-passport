@@ -191,4 +191,12 @@ nav > a {
   font-size: 16px;
   margin: 1.5rem; }
 
+.error-message {
+  background: #F02B63;
+  box-sizing: border-box;
+  color: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  width: 100%; }
+
 /*# sourceMappingURL=style.css.map */

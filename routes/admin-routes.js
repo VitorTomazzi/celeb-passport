@@ -31,7 +31,7 @@ router.get('/active-users', (req, res, next) => {
 
     User.find()
         .then((allTheUsers) => {
-            res.render('users/active-users', {
+            res.render('user/active-users', {
                 users: allTheUsers
             })
         })

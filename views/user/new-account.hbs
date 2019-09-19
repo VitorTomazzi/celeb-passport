@@ -1,0 +1,24 @@
+{{!-- page for admin to create new accounts --}}
+
+<h2>Create New Accounts</h2>
+
+<form action="/signup" method="POST">
+
+<div>
+    <label for="username"> Username </label>
+    <input type="text" name='theUsername'>
+</div>
+
+<div>
+    <label for="password"> Password </label>
+    <input type="password" name='thePassword'>
+</div>
+
+<div>
+    <label for="adminCheck"> Is User an Administrator </label>
+    <input type="checkbox" name='role' value="true">
+</div>
+
+<button type='submit'> Create </button>
+
+</form>

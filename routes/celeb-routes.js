@@ -16,11 +16,11 @@ router.get('/', (req, res, next) => {
     .then((allTheCelebrities) => {
 
       // only lets users delete/edit movies that they created. Admin can do everything
-      allTheCelebrities.forEach((eachMovie)=>{
-        if(eachMovie.creator.equals(req.user._id) || req.user.isAdmin) {
-          eachMovie.mine = true;
-        }
-      })
+      // allTheCelebrities.forEach((eachMovie)=>{
+      //   if(eachMovie.creator.equals(req.user._id) || req.user.isAdmin) {
+      //     eachMovie.mine = true;
+      //   }
+      // })
 
       res.render('celebrities/index', {
         celebrities: allTheCelebrities

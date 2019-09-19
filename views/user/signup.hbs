@@ -3,7 +3,7 @@
   <p>McLovin!? What kind of a stupid name is that...</p>
 </div>
 
-<form action="/user/login" method="POST" id="signup-form">
+<form action="/user/signup" method="POST" id="signup-form">
   <h2>Sign Up</h2>
 
   <label for="username">Username</label>
@@ -12,9 +12,9 @@
   <label for="password">Password</label>
   <input type="password" name="thePassword">
 
-  {{!-- {{#if errorMessage }}
+  {{#if errorMessage }}
     <div class="error-message">{{ errorMessage }}</div>
-  {{/if}} --}}
+  {{/if}}
 
   <button type='submit'>Sign Up</button>
 

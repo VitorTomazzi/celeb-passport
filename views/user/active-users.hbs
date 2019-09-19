@@ -1,0 +1,14 @@
+{{!-- object name from admin-routes --}}
+{{#each users}}  
+
+<h2>{{this.username}}</h2>
+
+{{!-- links to post route in admin-routes so admin can delete accounts --}}
+<form action="/admin/delete/{{this._id}}" method="POST">
+
+<button type='submit'> Delete Account</button>
+
+</form>
+
+
+{{/each}}

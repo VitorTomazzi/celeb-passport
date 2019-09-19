@@ -23,15 +23,9 @@ router.post('/signup', (req, res, next) => {
     if (req.user.isAdmin) {
       //check if logged in user in an admin if so give them true value to is admin
       admin = req.body.role ? req.body.role : false;
-      // this is the same as 
-      // if(req.body.role){
-      //     admin= req.body.role
-      // }
-      // else{
-      //     admin = false
-      // }
     }
   }
+
 
   let username = req.body.theUsername;
   let password = req.body.thePassword;
@@ -39,13 +33,31 @@ router.post('/signup', (req, res, next) => {
   let salt = bcrypt.genSaltSync(bcryptSalt);
   let hashPass = bcrypt.hashSync(password, salt);
 
+  if (username === "" || password === "") {
+    res.render("user/signup", {
+      errorMessage: "Indicate a username and a password to sign up"
+    });
+    return;
+  }
+
   User.create({
       username: username,
       password: hashPass,
       isAdmin: admin
     })
     .then((result) => {
-      res.redirect('/');
+
+
+      req.login(result, function(err, user){
+
+        if(!err){
+          res.redirect('/celebrity');
+        } else{
+          next(err);
+        }
+
+      })
+
     })
     .catch((err) => {
       next(err);
