@@ -1,13 +1,8 @@
-// #00FFB2
 
 body {
   padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: rgba($color: #5c5b5b, $alpha: .1)
-}
-
-a {
-  color: #00B7FF;
 }
 
 nav {
@@ -25,7 +20,6 @@ nav>a {
 }
 
 .welcome {
-  // border: 1px solid red;
   margin: 30px auto;
   width: 50vw;
   height: 30vh;
@@ -143,15 +137,11 @@ nav>a {
   transition: .3s ease background;
 }
 
-
-
-
 .celeb-wrapper {
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  // border: 1px solid red;
 }
 
 .celeb-options {
@@ -172,34 +162,36 @@ nav>a {
 }
 
 .celeb-actions {
-  // border: 1px solid purple;
   display: flex;
   align-items: center;
-  // flex-direction: column;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  // width: 100%;
-  // margin: auto 1rem;
+
 }
 
 .delete-button {
-  // margin: .8rem auto;
   background-color: red;
   border-color: red;
-  // font-size: 12px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: white;
   padding: .5rem;
   border-radius: 5px;
 }
 
-.celeb-actions>div>a {
+.celeb-actions > a {
   text-decoration: none;
   border: 1px solid #00B7FF;
   background-color: #00B7FF;
   color: white;
   border-radius: 5px;
   padding: .5rem;
+  margin-right: 15px;
+
+}
+
+.celeb-actions > a:nth-child(2) {
+  background-color: orange;
+  border: 1px solid orange;  
 }
 
 .celeb-name {
@@ -212,38 +204,42 @@ nav>a {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  // border: 1px solid red;
 }
 
 .movie-options {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid blue;
-  width: 30%;
+  width: 300px;
   padding: 2rem;
   margin: 1rem;
+  background-color: rgba($color: #5c5b5b, $alpha: .6);
 }
 
 .movie-actions {
   display: flex;
-  flex-direction: column;
   align-items: center;
+}
+
+.movie-actions > a {
+  text-decoration: none;
+  border: 1px solid #00B7FF;
+  background-color: #00B7FF;
+  color: white;
+  border-radius: 5px;
+  padding: .5rem;
+  margin-right: 15px;
+}
+
+.movie-actions > a:nth-child(2) {
+  background-color: orange;
+  border: 1px solid orange;  
 }
 
 .movie-name {
   font-size: 16px;
   margin: 1.5rem;
 }
-
-// .error-message {
-//   background: #F02B63;
-//   box-sizing: border-box;
-//   color: #fff;
-//   margin: 20px auto;
-//   padding: 20px;
-//   width: 100%;
-// }
 
 .error-message {
   text-align: center;
@@ -263,4 +259,9 @@ nav>a {
   margin: 20px auto;
   padding: 20px;
   width: 25%;
+}
+
+.add-new {
+  margin: 20vh auto;
+  width: 380px;
 }

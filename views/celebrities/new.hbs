@@ -1,37 +1,39 @@
-<h2> Add new celeb </h2>
+<div class='add-new'>
+    <h2> Add new celeb </h2>
 
-<form action="/celebrity" method="POST">
+    <form action="/celebrity" method="POST">
 
-    <div>
-        <p>Name:</p>
-        <input type="text" name='theName'>
+        <div>
+            <p>Name:</p>
+            <input type="text" name='theName'>
 
-        <p>Occupation:</p>
-        <input type="text" name='theOccupation'>
+            <p>Occupation:</p>
+            <input type="text" name='theOccupation'>
 
-        <p>Catch Phrase:</p>
-        <input type="text" name='theCatchPhrase'>
-    </div>
+            <p>Catch Phrase:</p>
+            <input type="text" name='theCatchPhrase'>
+        </div>
 
-    <div>
-        <p>Stars in:</p>
-        <select name="theMovie" id="movies-list">
-            <option value="" selected disabled> Please Select One</option>
+        <div>
+            <p>Stars in:</p>
+            <select name="theMovie" id="movies-list">
+                <option value="" selected disabled> Please Select One</option>
 
-            {{#each movies}}
-            <option value="{{this._id}}">{{this.title}}</option>
-            {{/each}}
+                {{#each movies}}
+                <option value="{{this._id}}">{{this.title}}</option>
+                {{/each}}
 
-        </select>
-    </div>
+            </select>
+        </div>
 
-    <div>
-        <p>Image:</p>
-        <input type="text" name='theImage'>
-    </div>
+        <div>
+            <p>Image:</p>
+            <input type="text" name='theImage'>
+        </div>
 
-    <div>
-        <button type="submit">SAVE</button>
-    </div>
+        <div>
+            <button type="submit">SAVE</button>
+        </div>
 
-</form>
+    </form>
+</div>

@@ -3,9 +3,6 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: rgba(92, 91, 91, 0.1); }
 
-a {
-  color: #00B7FF; }
-
 nav {
   font-size: 24px;
   border-bottom: 1px solid black;
@@ -155,13 +152,18 @@ nav > a {
   padding: .5rem;
   border-radius: 5px; }
 
-.celeb-actions > div > a {
+.celeb-actions > a {
   text-decoration: none;
   border: 1px solid #00B7FF;
   background-color: #00B7FF;
   color: white;
   border-radius: 5px;
-  padding: .5rem; }
+  padding: .5rem;
+  margin-right: 15px; }
+
+.celeb-actions > a:nth-child(2) {
+  background-color: orange;
+  border: 1px solid orange; }
 
 .celeb-name {
   font-size: 16px;
@@ -177,15 +179,27 @@ nav > a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid blue;
-  width: 30%;
+  width: 300px;
   padding: 2rem;
-  margin: 1rem; }
+  margin: 1rem;
+  background-color: rgba(92, 91, 91, 0.6); }
 
 .movie-actions {
   display: flex;
-  flex-direction: column;
   align-items: center; }
+
+.movie-actions > a {
+  text-decoration: none;
+  border: 1px solid #00B7FF;
+  background-color: #00B7FF;
+  color: white;
+  border-radius: 5px;
+  padding: .5rem;
+  margin-right: 15px; }
+
+.movie-actions > a:nth-child(2) {
+  background-color: orange;
+  border: 1px solid orange; }
 
 .movie-name {
   font-size: 16px;
@@ -208,5 +222,9 @@ nav > a {
   margin: 20px auto;
   padding: 20px;
   width: 25%; }
+
+.add-new {
+  margin: 20vh auto;
+  width: 380px; }
 
 /*# sourceMappingURL=style.css.map */

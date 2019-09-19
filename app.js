@@ -141,7 +141,7 @@ passport.use(
   new GoogleStrategy({
       clientID: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      callbackURL: "/auth/google/callback"
+      callbackURL: "/user/auth/google/callback"
     },
     (accessToken, refreshToken, profile, done) => {
       // to see the structure of the data in received response:
