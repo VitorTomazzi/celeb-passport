@@ -79,7 +79,8 @@ app.use(passport.session());
 // this line connects the passport instance you just created, with the session that you just created above it
 
 
-app.use(require('flash')());
+app.use(flash());
+
 
 passport.serializeUser((user, cb) => {
   cb(null, user._id);
@@ -125,6 +126,7 @@ app.use((req, res, next) => {
 
   res.locals.theUser = req.user;
 
+  res.locals.successMessage = req.flash('success');
   res.locals.errorMessage = req.flash('error');
 
   next();
@@ -146,5 +148,8 @@ app.use('/movies', movieRoutes);
 
 const userRoutes = require('./routes/user-routes');
 app.use('/user', userRoutes);
+
+const adminRoutes = require('./routes/admin-routes');
+app.use('/admin', adminRoutes);
 
 module.exports = app;

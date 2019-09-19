@@ -6,6 +6,12 @@ const Movie = require('../models/Movie')
 
 /* GET home page */
 router.get('/', (req, res, next) => {
+  
+  if(!req.user){
+    req.flash('error', 'Please login to view this page')
+    req.flash('/login')
+  }
+
   Celeb.find()
     .then((allTheCelebrities) => {
       res.render('celebrities/index', {
