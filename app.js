@@ -17,6 +17,9 @@ const User = require('./models/User');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+
+
 mongoose.Promise = Promise;
 mongoose
   .connect('mongodb://localhost/celebrity', {
@@ -132,6 +135,47 @@ app.use((req, res, next) => {
   next();
 
 })
+
+
+passport.use(
+  new GoogleStrategy({
+      clientID: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
+      callbackURL: "/auth/google/callback"
+    },
+    (accessToken, refreshToken, profile, done) => {
+      // to see the structure of the data in received response:
+      console.log("Google account details:", profile);
+
+      User.findOne({
+          googleID: profile.id
+        })
+        .then(user => {
+          if (user) {
+            done(null, user);
+            return;
+          }
+
+          if (profile.photos) {
+            theImage = profile.photos[0].value;
+          }
+
+          User.create({
+              googleID: profile.id,
+              isAdmin: false,
+              image: theImage,
+              profile: profile._json.username
+            })
+            .then(newUser => {
+              done(null, newUser);
+            })
+            .catch(err => done(err)); // closes User.create()
+        })
+        .catch(err => done(err)); // closes User.findOne()
+    }
+  )
+);
+
 
 
 // default value for title local

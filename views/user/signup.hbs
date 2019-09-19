@@ -12,15 +12,19 @@
   <label for="password">Password</label>
   <input type="password" name="thePassword">
 
-  {{#if errorMessage }}
+  {{!-- {{#if errorMessage }}
     <div class="error-message">{{ errorMessage }}</div>
-  {{/if}}
+  {{/if}} --}}
 
   <button type='submit'>Sign Up</button>
+
+  {{#unless user}}
+  <div>
+    <a href="/user/auth/google">Sign Up With Google</a>
+  </div>
+  {{/unless}}
 
   <p class="account-message">
     Already have an account? <a href="/user/login">Login</a>
   </p>
 </form>
-
-

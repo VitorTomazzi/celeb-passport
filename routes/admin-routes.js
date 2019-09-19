@@ -43,23 +43,19 @@ router.get('/active-users', (req, res, next) => {
 
 
 //page where admin can delete users from DB. deletes tehm by their ID's. can only access after passing admin check above
-router.post('/admin/delete/:id', (req,res,next)=>{
+router.post('/delete/:id', (req,res,next)=>{
 
     User.findByIdAndRemove(req.params.id)
     .then((result)=>{
 
         req.flash('success', 'Account successfully deleted')
-        res.redirect('/active-users') //redirects back to same page
+        res.redirect('/admin/active-users') //redirects back to same page
 
     })
     .catch((err)=>{
         next(err);
     })
 })
-
-
-
-
 
 
 

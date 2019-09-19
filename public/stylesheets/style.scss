@@ -1,10 +1,9 @@
 // #00FFB2
 
 body {
-  padding: 30px;
+  padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: rgba($color: #5c5b5b, $alpha: .1)
-
 }
 
 a {
@@ -20,9 +19,9 @@ nav {
   padding-bottom: 1rem;
 }
 
-nav > a {
+nav>a {
   text-decoration: none;
-  color: black;  
+  color: black;
 }
 
 .welcome {
@@ -194,10 +193,10 @@ nav > a {
   border-radius: 5px;
 }
 
-.celeb-actions > div > a {
+.celeb-actions>div>a {
   text-decoration: none;
   border: 1px solid #00B7FF;
-  background-color: #00B7FF;  
+  background-color: #00B7FF;
   color: white;
   border-radius: 5px;
   padding: .5rem;
@@ -237,11 +236,31 @@ nav > a {
   margin: 1.5rem;
 }
 
+// .error-message {
+//   background: #F02B63;
+//   box-sizing: border-box;
+//   color: #fff;
+//   margin: 20px auto;
+//   padding: 20px;
+//   width: 100%;
+// }
+
 .error-message {
+  text-align: center;
   background: #F02B63;
   box-sizing: border-box;
   color: #fff;
   margin: 20px auto;
   padding: 20px;
-  width: 100%;
+  width: 25%;
+}
+
+.success-message {
+  text-align: center;
+  background: #00f095;
+  box-sizing: border-box;
+  color: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  width: 25%;
 }

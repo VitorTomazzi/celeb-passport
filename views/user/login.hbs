@@ -20,6 +20,12 @@
 
   <button type='submit'>Login</button>
 
+  {{#unless user}}
+  <div>
+    <a href="/user/auth/google">Login With Google</a>
+  </div>
+  {{/unless}}
+
   <p class="account-message">
     Don't have an account? <a href="/user/signup">Sign up</a>
   </p>

@@ -47,17 +47,18 @@ router.post('/signup', (req, res, next) => {
     })
     .then((result) => {
 
-
-      req.login(result, function(err, user){
-
-        if(!err){
-          res.redirect('/celebrity');
-        } else{
-          next(err);
-        }
-
-      })
-
+      //if no user then do the auto login when signing up
+      if (!req.user) {
+        req.login(result, function (err, user) {
+          if (!err) {
+            res.redirect('/celebrity');
+          } else {
+            next(err);
+          }
+        })
+      } else {
+        res.redirect('/admin/active-users') //when admin creates a user go to all users page
+      }
     })
     .catch((err) => {
       next(err);
@@ -75,7 +76,7 @@ router.get('/login', (req, res, next) => {
 //route for actually login in. if successful, takes you to celebrity page, if not back to login in again.
 router.post("/login", passport.authenticate("local", {
   successRedirect: "/celebrity",
-  failureRedirect: "/login",
+  failureRedirect: "/user/login",
   failureFlash: true,
   passReqToCallback: true
 }));
@@ -117,6 +118,23 @@ router.post('/account/delete-my-account', (req, res, next) => {
     })
 })
 
+router.get(
+  "/auth/google",
+  passport.authenticate("google", {
+    scope: [
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/userinfo.email"
+    ]
+  })
+);
+
+router.get(
+  "/auth/google/callback",
+  passport.authenticate("google", {
+    successRedirect: "/celebrity",
+    failureRedirect: "/user/login" // here you would redirect to the login page using traditional login approach
+  })
+);
 
 
 module.exports = router;
